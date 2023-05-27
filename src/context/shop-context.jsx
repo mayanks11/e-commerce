@@ -1,4 +1,4 @@
-import React, { createContext } from "react";
+import React, { createContext, useState } from "react";
 import { PRODUCTS } from "../products";
 
 export const ShopContext = createContext(null);
@@ -19,8 +19,10 @@ export default function ShopContextProvider(props){
     const removeFromCart = (itemId) => {
         setCartItems((prev) => ({...prev, [itemId]: prev[itemId] - 1}));
     }
+    const contextValue = {cartItems, addToCart, removeFromCart};
+    console.log(cartItems);
     return(
-        <ShopContext.Provider>
+        <ShopContext.Provider value={contextValue}>
             {props.children}
         </ShopContext.Provider>
     )
