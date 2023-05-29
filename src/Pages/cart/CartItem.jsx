@@ -1,4 +1,5 @@
 import React from "react";
+import "./cart.css";
 
 export default function CartItem(props){
     const{id, productName, price, productImage} = props.data;
